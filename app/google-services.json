@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1022504547869",
+    "firebase_url": "https://quiz-app-d655f.firebaseio.com",
+    "project_id": "quiz-app-d655f",
+    "storage_bucket": "quiz-app-d655f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022504547869:android:a2c46333ff6b02bbe8f8f4",
+        "android_client_info": {
+          "package_name": "com.techexpert.testquiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022504547869-215sjilliqg4mpaj19p9on2vhfje9oqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ1YebypcY_ArC0SzZSN0MQmRI3VGn1Ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022504547869-215sjilliqg4mpaj19p9on2vhfje9oqj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
