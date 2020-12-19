@@ -6,6 +6,7 @@
 * Attemping quizzes in given time and getting result after quiz.
 * Leadership according to quiz marks.
 * Downloading result of quizzes in excel sheet
+* Uploading profile pic and other details on firebase.
 * Chatting feature
 * Notification feature
 ## Some Special Rules of App
