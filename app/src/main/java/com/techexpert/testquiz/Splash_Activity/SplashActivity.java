@@ -21,9 +21,11 @@ public class SplashActivity extends AppCompatActivity {
 
     /** Called when the activity is first created. */
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         avLoadingIndicatorView = findViewById(R.id.avi);
         avLoadingIndicatorView.smoothToShow();
         Animation anim = AnimationUtils.loadAnimation(this,R.anim.alpha);

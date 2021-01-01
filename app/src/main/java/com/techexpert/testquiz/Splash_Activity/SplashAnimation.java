@@ -9,7 +9,8 @@ import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
-public class SplashAnimation extends AwesomeSplash {
+public class SplashAnimation extends AwesomeSplash
+{
 
     private boolean isAdmin = false;
     @Override

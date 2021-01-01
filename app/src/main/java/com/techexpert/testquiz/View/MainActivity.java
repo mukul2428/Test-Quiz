@@ -54,7 +54,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+{
 
     private FirebaseDatabase database;
     private FirebaseAuth auth;
@@ -78,10 +79,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar =  findViewById(R.id.toolbar);
-        imageButton = findViewById(R.id.userImage2);
         setSupportActionBar(toolbar);
+
+        imageButton = findViewById(R.id.userImage2);
         imageView = findViewById(R.id.card1);
         floatingActionButton = findViewById(R.id.chatHead);
+
         auth= FirebaseAuth.getInstance();
 
         //get user image if it's available
@@ -227,20 +230,25 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
         // Handle navigation view item clicks here.
             int id = item.getItemId();
 
-            if (id == R.id.nav_test) {
-                if (isNetworkAvailable(MainActivity.this)) {
+            if (id == R.id.nav_test)
+            {
+                if (isNetworkAvailable(MainActivity.this))
+                {
                     startActivity(new Intent(MainActivity.this, Tests.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }
                 else
                     alertNoConnection();
-            } else if (id == R.id.nav_result) {
-                if ( isNetworkAvailable(MainActivity.this)) {
+            }
+            else if (id == R.id.nav_result)
+            {
+                if ( isNetworkAvailable(MainActivity.this))
+                {
                     Intent intent = new Intent(MainActivity.this, ResultsAdmin.class);
                     intent.putExtra("ISADMIN",isAdmin);
                     startActivity(intent);
@@ -248,7 +256,9 @@ public class MainActivity extends AppCompatActivity
                 }
                 else
                     alertNoConnection();
-            } else if (id == R.id.create_test) {
+            }
+            else if (id == R.id.create_test)
+            {
                 if (isAdmin && isNetworkAvailable(MainActivity.this)) {
                     startActivity(new Intent(MainActivity.this, create_quiz_main.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -322,8 +332,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setTextOnUser(){
-        FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
-        USer_email.setText(Objects.requireNonNull(usero).getEmail());
+        FirebaseUser userO = FirebaseAuth.getInstance().getCurrentUser();
+        USer_email.setText(Objects.requireNonNull(userO).getEmail());
     }
 
     /*method to handle network connection**/

@@ -50,9 +50,11 @@ public class Tests extends AppCompatActivity
     ArrayList<Test> tests=new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tests);
+
         Toolbar toolbar =  findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
         setSupportActionBar(toolbar);
@@ -72,13 +74,15 @@ public class Tests extends AppCompatActivity
     }
 
     @Override
-    protected void onRestart() {
+    protected void onRestart()
+    {
         super.onRestart();
         stopService(new Intent(Tests.this, NotificationService.class));
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
 
         int id = item.getItemId();
 
@@ -88,7 +92,8 @@ public class Tests extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public void getQues(){
+    public void getQues()
+    {
         //addListenerForSingleValueEvent
         myRef.child("tests").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
