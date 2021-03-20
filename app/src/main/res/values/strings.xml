@@ -36,8 +36,8 @@
     </string-array>
     <string-array name="Branch_Choice">
         <item>IT</item>
+        <item>CSE</item>
         <item>ECE</item>
-        <item>DUAl(IT+ECE)</item>
     </string-array>
     <string-array name="Sem_Choice">
         <item>I</item>

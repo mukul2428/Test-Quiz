@@ -36,7 +36,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Auth_Controller.SignUp"
+            android:name=".Auth_Controller.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
@@ -57,14 +57,14 @@
             android:name=".Auth_Controller.ResetPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Attempt_Quiz_Section.AttemptTest"
+            android:name=".Attempt_Quiz_Section.AttemptTestActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Attempt_Quiz_Section.Tests"
+            android:name=".Attempt_Quiz_Section.TestActivity"
             android:label="@string/title_activity_tests"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".View.AddDetails"
+            android:name=".View.AddDetailsActivity"
             android:label="@string/title_activity_UPdate"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
@@ -92,7 +92,7 @@
         </activity>
 
         <activity
-            android:name=".Create_Quiz.Custom_quiz"
+            android:name=".Create_Quiz.CustomQuizActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
 

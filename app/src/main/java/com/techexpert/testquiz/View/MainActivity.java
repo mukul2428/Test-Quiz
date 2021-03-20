@@ -39,7 +39,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.techexpert.testquiz.Attempt_Quiz_Section.Tests;
+import com.techexpert.testquiz.Attempt_Quiz_Section.TestActivity;
 import com.techexpert.testquiz.Auth_Controller.LoginActivity;
 import com.techexpert.testquiz.Auth_Controller.ResetPasswordActivity;
 import com.techexpert.testquiz.Create_Quiz.create_quiz_main;
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
-    private FirebaseDatabase database;
     private FirebaseAuth auth;
     private DatabaseReference myRef;
     private StorageReference firebaseStorage;
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity
     private CircleImageView imageView;
     public CircleImageView imageView1;
     final long ONE_MEGABYTE = 1024 * 1024;
-    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity
 
         imageButton = findViewById(R.id.userImage2);
         imageView = findViewById(R.id.card1);
-        floatingActionButton = findViewById(R.id.chatHead);
+        FloatingActionButton floatingActionButton = findViewById(R.id.chatHead);
 
         auth= FirebaseAuth.getInstance();
 
@@ -123,8 +121,8 @@ public class MainActivity extends AppCompatActivity
         });
 
         auth = FirebaseAuth.getInstance();
-        database= FirebaseDatabase.getInstance();
-        myRef=database.getReference();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef= database.getReference();
 
         /*check if user is admin or not**/
         checkForAdmin();
@@ -239,7 +237,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if (isNetworkAvailable(MainActivity.this))
                 {
-                    startActivity(new Intent(MainActivity.this, Tests.class));
+                    startActivity(new Intent(MainActivity.this, TestActivity.class));
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 }
                 else
@@ -280,7 +278,7 @@ public class MainActivity extends AppCompatActivity
                 finish();
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             } else if (id == R.id.nav_details) {
-                startActivity(new Intent(MainActivity.this, AddDetails.class));
+                startActivity(new Intent(MainActivity.this, AddDetailsActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             } else if (id == R.id.about_details) {
                 startActivity(new Intent(MainActivity.this, AboutUsActivity.class));

@@ -1,6 +1,5 @@
 package com.techexpert.testquiz.NotificationActivity;
 
-
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Color;

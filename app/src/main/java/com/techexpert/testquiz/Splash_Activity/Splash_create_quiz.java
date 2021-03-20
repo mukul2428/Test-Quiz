@@ -3,7 +3,7 @@ package com.techexpert.testquiz.Splash_Activity;
 import android.content.Intent;
 
 import com.daimajia.androidanimations.library.Techniques;
-import com.techexpert.testquiz.Create_Quiz.Custom_quiz;
+import com.techexpert.testquiz.Create_Quiz.CustomQuizActivity;
 import com.techexpert.testquiz.R;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
@@ -54,7 +54,7 @@ public class Splash_create_quiz extends AwesomeSplash
     @Override
     public void animationsFinished() {
 
-        startActivity(new Intent(Splash_create_quiz.this, Custom_quiz.class));
+        startActivity(new Intent(Splash_create_quiz.this, CustomQuizActivity.class));
         finish();
 
     }

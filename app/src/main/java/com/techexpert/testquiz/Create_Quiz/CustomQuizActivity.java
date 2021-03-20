@@ -32,7 +32,7 @@ import java.util.Map;
 
 import es.dmoral.toasty.Toasty;
 
-public class Custom_quiz extends AppCompatActivity
+public class CustomQuizActivity extends AppCompatActivity
 {
 
     EditText question,aText,bText,cText,dText;
@@ -132,7 +132,7 @@ public class Custom_quiz extends AppCompatActivity
                 {
                     previousQuestion++;
                     currentQuestion++;
-                    Toast.makeText(Custom_quiz.this, "QUESTION " + currentQuestion, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CustomQuizActivity.this, "QUESTION " + currentQuestion, Toast.LENGTH_SHORT).show();
                     questionNumber.setText(String.valueOf(currentQuestion));
                     clearAllData();
                     //making previous button visible
@@ -152,9 +152,9 @@ public class Custom_quiz extends AppCompatActivity
                     final JSONObject tempObject = new JSONObject();
 
                     // get dialog_custom.xml view
-                    LayoutInflater li = LayoutInflater.from(Custom_quiz.this);
+                    LayoutInflater li = LayoutInflater.from(CustomQuizActivity.this);
                     View promptsView = li.inflate(R.layout.dialog_custom, null);
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Custom_quiz.this);
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(CustomQuizActivity.this);
 
                     // set dialog_custom.xml to alert dialog builder
                     alertDialogBuilder.setView(promptsView);
@@ -221,7 +221,7 @@ public class Custom_quiz extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(Custom_quiz.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(CustomQuizActivity.this);
         builder.setMessage("Exit without saving?");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
         {

@@ -22,7 +22,7 @@ import java.util.Objects;
 
 import es.dmoral.toasty.Toasty;
 
-public class SignUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
     private Button btnSignIn, btnSignUp, btnResetPassword;
@@ -47,7 +47,7 @@ public class SignUp extends AppCompatActivity {
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUp.this, ResetPasswordActivity.class));
+                startActivity(new Intent(SignUpActivity.this, ResetPasswordActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
@@ -86,21 +86,21 @@ public class SignUp extends AppCompatActivity {
                 avLoadingIndicatorView.smoothToShow();
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignUp.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 avLoadingIndicatorView.setVisibility(View.GONE);
                                 avLoadingIndicatorView.smoothToHide();
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toasty.error(SignUp.this,"Authentication failed."+ task.getException(),
+                                    Toasty.error(SignUpActivity.this,"Authentication failed."+ task.getException(),
                                             Toasty.LENGTH_SHORT).show();
                                 } else {
                                     Objects.requireNonNull(auth.getCurrentUser()).sendEmailVerification();
-                                    Toasty.success(SignUp.this,R.string.email_sent,Toasty.LENGTH_SHORT).show();
+                                    Toasty.success(SignUpActivity.this,R.string.email_sent,Toasty.LENGTH_SHORT).show();
                                 }
                             }
                         });

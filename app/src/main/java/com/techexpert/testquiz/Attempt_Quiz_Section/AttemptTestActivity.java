@@ -47,7 +47,7 @@ import java.util.concurrent.TimeUnit;
 
 import es.dmoral.toasty.Toasty;
 
-public class AttemptTest extends AppCompatActivity
+public class AttemptTestActivity extends AppCompatActivity
 {
     ArrayList<Question> questions;
     String[]answers;
@@ -117,7 +117,7 @@ public class AttemptTest extends AppCompatActivity
         indexLayout=findViewById(R.id.index_layout);
         indexLayout.setAlpha(.5f);
         quesGrid=findViewById(R.id.pop_grid);
-        popGrid=new popGridAdapter(AttemptTest.this);
+        popGrid=new popGridAdapter(AttemptTestActivity.this);
         quesGrid.setAdapter(popGrid);
         quesGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -136,7 +136,7 @@ public class AttemptTest extends AppCompatActivity
         timer=((Test) getIntent().getExtras().get("Questions")).getTime()*60*1000;
     }
     void showPopUp(){
-        AlertDialog.Builder builder=new AlertDialog.Builder(AttemptTest.this);
+        AlertDialog.Builder builder=new AlertDialog.Builder(AttemptTestActivity.this);
         builder.setMessage("Do you want to submit?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -185,13 +185,13 @@ public class AttemptTest extends AppCompatActivity
 
     void dialogStart() {
 
-        final AlertDialog.Builder builderSingle = new AlertDialog.Builder(AttemptTest.this);
+        final AlertDialog.Builder builderSingle = new AlertDialog.Builder(AttemptTestActivity.this);
         builderSingle.setIcon(R.mipmap.ic_launcher_round);
         builderSingle.setTitle(TESTNAME+" Answers");
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>
-                (AttemptTest.this, android.R.layout.select_dialog_singlechoice);
+                (AttemptTestActivity.this, android.R.layout.select_dialog_singlechoice);
         final ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>
-                (AttemptTest.this,android.R.layout.select_dialog_singlechoice);
+                (AttemptTestActivity.this,android.R.layout.select_dialog_singlechoice);
 
         for(String y : arrayList) {
             arrayAdapter1.add(y);
@@ -213,7 +213,7 @@ public class AttemptTest extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String strName = arrayAdapter.getItem(which);
-                AlertDialog.Builder builderInner = new AlertDialog.Builder(AttemptTest.this);
+                AlertDialog.Builder builderInner = new AlertDialog.Builder(AttemptTestActivity.this);
                 builderInner.setMessage(strName);
                 builderInner.setCancelable(false);
                 builderInner.setTitle("Your Selected Question Answer is");
@@ -236,7 +236,7 @@ public class AttemptTest extends AppCompatActivity
     protected void onPause() {
         super.onPause();
         if(countPaused<=2 && countPaused >=0 && flag_controller == 1)
-            startService(new Intent(AttemptTest.this,
+            startService(new Intent(AttemptTestActivity.this,
                     NotificationService.class));
         countPaused++;
     }
@@ -244,9 +244,9 @@ public class AttemptTest extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        stopService(new Intent(AttemptTest.this, NotificationService.class));
+        stopService(new Intent(AttemptTestActivity.this, NotificationService.class));
         if(countPaused>2) {
-            Toasty.success(AttemptTest.this,"Thank you! Your response has been submitted.",
+            Toasty.success(AttemptTestActivity.this,"Thank you! Your response has been submitted.",
                     Toasty.LENGTH_SHORT).show();
             countPaused = -1000;
             submit();
@@ -257,7 +257,7 @@ public class AttemptTest extends AppCompatActivity
     @Override
     protected void onRestart() {
         super.onRestart();
-        stopService(new Intent(AttemptTest.this, NotificationService.class));
+        stopService(new Intent(AttemptTestActivity.this, NotificationService.class));
 }
 
     void setNextPrevButton(int pos){

@@ -41,7 +41,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class AddDetails extends AppCompatActivity
+public class AddDetailsActivity extends AppCompatActivity
 {
     private Spinner section,sem,branch;
     private ArrayAdapter<String> SecAdapter,BranchAdapter,SemAdapter;
@@ -106,14 +106,14 @@ public class AddDetails extends AppCompatActivity
                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(AddDetails.this,"Updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddDetailsActivity.this,"Updated", Toast.LENGTH_SHORT).show();
                             refresh();//Refresh 9
                             finish();
                             progressDialog.dismiss();
                             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                         }
                     });
-                }else Toast.makeText(AddDetails.this,"Enter Valid Name", Toast.LENGTH_SHORT).show();
+                }else Toast.makeText(AddDetailsActivity.this,"Enter Valid Name", Toast.LENGTH_SHORT).show();
             }
         });
         mDatabase.child("users").child(Objects.requireNonNull(auth.getUid())).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -124,11 +124,11 @@ public class AddDetails extends AppCompatActivity
                             User user=dataSnapshot.getValue(User.class);
                             assert user != null;
                             name.setText(user.name);
-                            section.setSelection(Arrays.asList(AddDetails.this.getResources()
+                            section.setSelection(Arrays.asList(AddDetailsActivity.this.getResources()
                                     .getStringArray(R.array.College_Choice)).indexOf(user.sect));
-                            branch.setSelection(Arrays.asList(AddDetails.this.getResources()
+                            branch.setSelection(Arrays.asList(AddDetailsActivity.this.getResources()
                                     .getStringArray(R.array.Branch_Choice)).indexOf(user.branch));
-                            sem.setSelection(Arrays.asList(AddDetails.this.getResources()
+                            sem.setSelection(Arrays.asList(AddDetailsActivity.this.getResources()
                                     .getStringArray(R.array.Sem_Choice)).indexOf(user.semester));
                 }
             }
@@ -149,7 +149,7 @@ public class AddDetails extends AppCompatActivity
 
     public void refresh() {
 
-        Intent intent = new Intent(AddDetails.this, MainActivity.class);
+        Intent intent = new Intent(AddDetailsActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         finish();
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -188,7 +188,7 @@ public class AddDetails extends AppCompatActivity
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            ImageUtils.displayRoundImageFromUrl(AddDetails.this, mImageUri.toString(), imageView);
+            ImageUtils.displayRoundImageFromUrl(AddDetailsActivity.this, mImageUri.toString(), imageView);
             //Picasso.get().load(mImageUri).into(imageView);
         }
     }

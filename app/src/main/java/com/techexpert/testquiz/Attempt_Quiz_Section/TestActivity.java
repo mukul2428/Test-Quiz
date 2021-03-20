@@ -38,7 +38,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Tests extends AppCompatActivity
+public class TestActivity extends AppCompatActivity
 {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
@@ -67,7 +67,7 @@ public class Tests extends AppCompatActivity
         database= FirebaseDatabase.getInstance();
         myRef=database.getReference();
         listView=findViewById(R.id.test_listview);
-        testAdapter=new TestAdapter(Tests.this,tests);
+        testAdapter=new TestAdapter(TestActivity.this,tests);
         listView.setAdapter(testAdapter);
         getQues();
 
@@ -77,7 +77,7 @@ public class Tests extends AppCompatActivity
     protected void onRestart()
     {
         super.onRestart();
-        stopService(new Intent(Tests.this, NotificationService.class));
+        stopService(new Intent(TestActivity.this, NotificationService.class));
     }
 
     @Override
@@ -155,7 +155,7 @@ public class Tests extends AppCompatActivity
             (listItem.findViewById(R.id.item_button)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(mContext, AttemptTest.class);
+                    Intent intent=new Intent(mContext, AttemptTestActivity.class);
                     intent.putExtra("Questions",dataList.get(position));
                     intent.putExtra("TESTNAME",dataList.get(position).getName());
                     startActivity(intent);
